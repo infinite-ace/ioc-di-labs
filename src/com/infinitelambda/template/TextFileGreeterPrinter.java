@@ -4,14 +4,14 @@ import java.io.*;
 
 public class TextFileGreeterPrinter extends TemplateMethodGreetingPrinter {
 
-    @Override
-    public void printGreeting(Object file) throws IOException {
+    public TextFileGreeterPrinter(File file)  throws IOException {
         BufferedReader br
                 = new BufferedReader(new FileReader((File) file));
 
         String st;
 
         while ((st = br.readLine()) != null)
-            System.out.println(st);
+            // It will only append the first line of the file
+            this.stringToPrint = st;
     }
 }
